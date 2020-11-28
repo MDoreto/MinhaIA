@@ -13,13 +13,15 @@ import win32api
 import win32print
 import win32com.client
 import pyautogui
-from googleapiclient.discovery import build
-from httplib2 import Http
-from oauth2client import file, client, tools
 from urllib.request import Request, urlopen  
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from googleapiclient.discovery import build
+from httplib2 import Http
+from oauth2client import file, client, tools
+
+r = sr.Recognizer()
 
 def openProgram(program):
 	try:
@@ -27,82 +29,7 @@ def openProgram(program):
 		os.system('"' +findFiles(program,1) + '"')
 	except:
 		speak("Erro ao abrir " + program)
-
-def checkGmail():
-   
-    SCOPES = 'https://www.googleapis.com/auth/gmail.readonly'
-    store = file.Storage('token.json')
-    creds = store.get()
-    if not creds or creds.invalid:
-        flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
-        creds = tools.run_flow(flow, store)
-    service = build('gmail', 'v1', http=creds.authorize(Http()))
-    
-    # Call the Gmail API to fetch INBOX
-    results = service.users().messages().list(userId='me',labelIds = ['INBOX']).execute()
-    messages = results.get('messages', [])
-    
-
-    if not messages:
-        speak ("No messages found.")
-    else:
-        for message in messages:
-            msg = service.users().messages().get(userId='me', id=message['id']).execute()
-            for temp in msg['payload'].get('headers'):
-                if 'From' in temp.get('name'):
-                    a=temp.get('value').split('<')
-                    speak ('Email de: '+a[0])
-            speak (msg['snippet'])
-
-def printFile(nome, n):
-	if n == 'duas':
-		n = 2
-	if n == 'uma':
-		n=1
-	for i in range (int(n)):
-		win32api.ShellExecute (0,"print",findFiles(nome,0),'/d:"%s"' % win32print.GetDefaultPrinter (),".",0)
-		time.sleep(10)
-
-def speak(text):
-	speaker.setProperty('voice', 'brazil')
-	speaker.setProperty('rate', 150) 
-	speaker.say(text)
-	speaker.runAndWait()
-
-def idLeague(league):
-	connection = http.client.HTTPConnection('api.football-data.org')
-	headers = { 'X-Auth-Token': '6f85448cae8846b38a93712b9bb65a38' }
-	connection.request('GET', '/v2/competitions/', None, headers )
-	response = json.loads(connection.getresponse().read().decode())
-	leagues = response.get("competitions")
-	if 'brasileiro' in league.lower():
-		return (2013)
-	else:
-		for temp in leagues:			
-			if league.lower() in temp.get("name").lower():
-				return (temp.get("id"))				
-
-def posTime(team, league):
-	connection = http.client.HTTPConnection('api.football-data.org')
-	headers = { 'X-Auth-Token': '6f85448cae8846b38a93712b9bb65a38' }
-	connection.request('GET', '/v2/competitions/'+str(idLeague(league)) +'/standings', None, headers )
-	response = json.loads(connection.getresponse().read().decode())
-	table = response.get("standings")[0].get("table")
-	for temp in table:
-		if team.lower() in temp.get("team").get("name").lower():
-			return (temp.get("team").get("name"), temp.get("position"), temp.get("id"))
-
-def selectTeamLeague(string):
-	temp= speech.split()
-	for i, value in enumerate (temp):
-		if value == 'no' or value == 'na':
-			if temp[i-2] != 'da' and temp[i-2]!='do':
-				team = temp[i-2] + " " + temp[i-1]
-			else:
-				team = temp[i-1]
-			league =  temp[i+1] + ' ' + temp[i+2]
-			return (team, league)
-
+		
 def findFiles(filename, n):
 	results = []
 	results2 = []
@@ -124,7 +51,7 @@ def findFiles(filename, n):
 				pastas.append(pasta)
 			if len(pastas) ==0:
 				pastas.append(pasta)
-				
+
 		if len(pasta)> 1:
 			print (pastas)
 			speak ("O arquivo está na pasta ")
@@ -233,18 +160,90 @@ def stockValue(string):
 	resp = soup.find_all('span', class_="vWLAgc")
 	speak (resp.get_text)
 	
+def checkGmail():
+   
+    SCOPES = 'https://www.googleapis.com/auth/gmail.readonly'
+    store = file.Storage('token.json')
+    creds = store.get()
+    if not creds or creds.invalid:
+        flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
+        creds = tools.run_flow(flow, store)
+    service = build('gmail', 'v1', http=creds.authorize(Http()))
+    
+    # Call the Gmail API to fetch INBOX
+    results = service.users().messages().list(userId='me',labelIds = ['INBOX']).execute()
+    messages = results.get('messages', [])
+    
 
-r = sr.Recognizer()			
-speaker = pyttsx3.init()
-with sr.Microphone() as s:
+    if not messages:
+        speak ("No messages found.")
+    else:
+        for message in messages:
+            msg = service.users().messages().get(userId='me', id=message['id']).execute()
+            for temp in msg['payload'].get('headers'):
+                if 'From' in temp.get('name'):
+                    a=temp.get('value').split('<')
+                    speak ('Email de: '+a[0])
+            speak (msg['snippet'])
+
+def printFile(nome, n):
+	if n == 'duas':
+		n = 2
+	if n == 'uma':
+		n=1
+	for i in range (int(n)):
+		win32api.ShellExecute (0,"print",findFiles(nome,1),'/d:"%s"' % win32print.GetDefaultPrinter (),".",0)
+		time.sleep(10)
+
+def speak(text):
+	speaker = pyttsx3.init()
+	speaker.setProperty('voice', 'brazil')
+	speaker.setProperty('rate', 150) 
+	speaker.say(text)
+	speaker.runAndWait()
+
+def idLeague(league):
+	connection = http.client.HTTPConnection('api.football-data.org')
+	headers = { 'X-Auth-Token': '6f85448cae8846b38a93712b9bb65a38' }
+	connection.request('GET', '/v2/competitions/', None, headers )
+	response = json.loads(connection.getresponse().read().decode())
+	leagues = response.get("competitions")
+	if 'brasileiro' in league.lower():
+		return (2013)
+	else:
+		for temp in leagues:			
+			if league.lower() in temp.get("name").lower():
+				return (temp.get("id"))				
+
+def posTime(team, league):
+	connection = http.client.HTTPConnection('api.football-data.org')
+	headers = { 'X-Auth-Token': '6f85448cae8846b38a93712b9bb65a38' }
+	connection.request('GET', '/v2/competitions/'+str(idLeague(league)) +'/standings', None, headers )
+	response = json.loads(connection.getresponse().read().decode())
+	table = response.get("standings")[0].get("table")
+	for temp in table:
+		if team.lower() in temp.get("team").get("name").lower():
+			return (temp.get("team").get("name"), temp.get("position"), temp.get("id"))
+
+def selectTeamLeague(string):
+	temp= speech.split()
+	for i, value in enumerate (temp):
+		if value == 'no' or value == 'na':
+			if temp[i-2] != 'da' and temp[i-2]!='do':
+				team = temp[i-2] + " " + temp[i-1]
+			else:
+				team = temp[i-1]
+			league =  temp[i+1] + ' ' + temp[i+2]
+			return (team, league)
+
+with sr.Microphone() as s:			
 	r.adjust_for_ambient_noise(s)
 	while True:
 		#try:
 			audio = r.listen(s)
 			speech = r.recognize_google(audio, language='pt')
 			speech = speech.lower()
-			print(speech)
-
+			print(speech)								
 			if 'posição' in speech or 'lugar' in speech:
 				temp= selectTeamLeague(speech)
 				pos =posTime(temp[0],temp[1])
@@ -269,7 +268,6 @@ with sr.Microphone() as s:
 					if 'email' in temp:
 						n = temp[i-1]
 				checkGmail()
-
 			if 'abr' in speech :
 				temp = speech.split()
 				for i, word in enumerate (temp):
@@ -300,7 +298,6 @@ with sr.Microphone() as s:
 					whoIs(a)
 				if 'ações' in speech and 'preço' in speech:
 					stockValue (a)
-
 		#except:
 		#	speak('Não entendi')
 		
