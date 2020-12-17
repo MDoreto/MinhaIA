@@ -1,0 +1,16 @@
+ LOG - JARVIS
+ 
+    valor e variação de ações por tag ou nome
+    controle de musica
+    busca por pessoa
+    busca por local
+    busca por jogos e tabela
+    abrir programas
+    imprimir arquivos
+    temperatura atual e previsão
+    leitura de emails
+    controle de volume
+    busca preço minimo de produtos
+    busca musicas spotify
+    busca videos 
+    envia mensagem no whats

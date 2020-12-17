@@ -1,0 +1,962 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width">
+    
+    <link rel="alternate" type="application/rss+xml" href="/blog/feed">
+    
+    
+    <meta name="description" content="Twilio posts cloud communications trends, customer stories, and tips for building scalable voice and SMS applications with Twilio&#39;s  APIs.">
+    
+    
+    
+    
+    
+    
+    
+    <title>Como enviar Mensagens de Whatsapp em 30 segundos com Python - Twilio</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" type="BlogPage" href="https://www.twilio.com/blog/como-enviar-mensagens-whatsapp-python" />
+  
+  <script type="application/ld+json">{"@context": "http://schema.org", "@type": "BlogPosting", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.twilio.com/blog/como-enviar-mensagens-whatsapp-python"}, "headline": "Como enviar Mensagens de Whatsapp em 30 segundos com Python", "datePublished": "2020-06-02T09:43:00+00:00", "publisher": {"@type": "Organization", "name": "Twilio", "url": "https://www.twilio.com", "logo": {"@type": "ImageObject", "url": "https://twilio-cms-prod.s3.amazonaws.com/original_images/twilio-logo-red-60px-tall.png", "width": 199, "height": 60}, "sameAs": ["https://twitter.com/twilio", "https://www.facebook.com/TeamTwilio", "https://plus.google.com/+twilio", "https://www.linkedin.com/company/twilio-inc-", "https://instagram.com/twilio/"]}, "description": "", "author": {"@type": "Person", "name": "Matt Makai"}, "dateModified": "2020-11-09T16:56:19.438762+00:00", "image": {"@type": "ImageObject", "url": "https://twilio-cms-prod.s3.amazonaws.com/original_images/SJtvesnDoPaHn8f15d5WQK82Sy-FWhUKDXVajY2sN_0PS2mtpj9ltiEmOKA6qj8QZugrblHY8IMHXa", "height": 328, "width": 808}}</script>
+  
+
+
+
+<meta property="og:title" content="Como enviar Mensagens de Whatsapp em 30 segundos com Python">
+
+<meta property="og:url" content="https://www.twilio.com/blog/como-enviar-mensagens-whatsapp-python" />
+<meta property="og:site_name" content="Twilio Blog" />
+<meta property="og:type" content="article" />
+
+    <meta property="og:image" content="https://twilio-cms-prod.s3.amazonaws.com/original_images/SJtvesnDoPaHn8f15d5WQK82Sy-FWhUKDXVajY2sN_0PS2mtpj9ltiEmOKA6qj8QZugrblHY8IMHXa" />
+    <meta property="og:image:width" content="808" />
+    <meta property="og:image:height" content="328" />
+
+
+
+
+<meta name="twitter:site" content="@twilio" />
+
+<meta name="twitter:title" content="Como enviar Mensagens de Whatsapp em 30 segundos com Python">
+
+
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://twilio-cms-prod.s3.amazonaws.com/original_images/SJtvesnDoPaHn8f15d5WQK82Sy-FWhUKDXVajY2sN_0PS2mtpj9ltiEmOKA6qj8QZugrblHY8IMHXa" />
+
+
+
+
+<meta property="fb:app_id" content="414254592083321" />
+
+
+
+
+
+  
+
+  
+  
+
+  <script>
+      dataLayer = [{
+          'author': 'Matt Makai',
+          'tags': 'TwilioVoices,Python,WhatsApp,portuguese',
+          'categories': 'code-tutorials-and-hacks',
+          'published_at': '2020-06-02',
+          'modified_at': '2020-11-09',
+      }]
+  </script>
+
+  
+  
+  <link rel="shortcut icon" href="/docs/static/img/favicons/favicon.9b4b3c8b0.ico"/>
+  <link rel="apple-touch-icon" href="/docs/static/img/favicons/favicon_57.9b4b3c8b0.png"/>
+  <link rel="apple-touch-icon" sizes="72x72" href="/docs/static/img/favicons/favicon_72.9b4b3c8b0.png"/>
+  <link rel="apple-touch-icon" sizes="114x114" href="/docs/static/img/favicons/favicon_114.9b4b3c8b0.png"/>
+  
+  
+  <link rel="stylesheet" href="/docs/static/css/fonts.min.9b4b3c8b0.css" />
+  <link rel="stylesheet" href="/docs/static/css/font-awesome.min.9b4b3c8b0.css" />
+  
+  
+  <link rel="stylesheet" href="/docs/static/css/blog.min.9b4b3c8b0.css" />
+  
+  
+  
+  
+  
+  
+  <script>
+  var twilio = twilio || {};
+  twilio.environment = "prod";
+  twilio.baseUrl = "https://www.twilio.com";
+  twilio.SWIFTYPE_ENGINE_KEY = "T68bXEBf7NaKzyRpvbnG";
+  twilio.DOCSEARCH_API_KEY = "2dbc0c5e764a2669b21db8acc967fbd8";
+  twilio.FACEBOOK_APP_ID = "414254592083321";
+</script>
+
+
+<script>
+  twilio.account = twilio.account || {};
+  
+
+  twilio.user = twilio.user || {};
+  
+  
+    twilio.user.visitorSid = "VI3c9516566b44bbcd1c2084962e8cfdd3";
+  
+  
+
+  
+  twilio.user.language = "php";
+  
+
+  
+
+</script>
+
+
+</head>
+
+<body class="outer-container">
+  
+
+	
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MWRD6S"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window, document, 'script', 'dataLayer', 'GTM-MWRD6S');</script>
+	<!-- End Google Tag Manager -->
+	
+
+
+    
+      
+        <style>
+  .tq3-header-banner {
+    width: 100%;
+    background-image: url("/quest/next/img/backdrop.png");
+    background-color: #222;
+    color: #eee;
+    font-size: 18px;
+    text-align: center;
+    font-family: Lekton, Monaco, "Droid Mono", Consolas, monospace;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2em !important;
+  }
+
+  .tq3-header-banner img {
+    height: 40px;
+  }
+
+  .tq3-header-banner span.text {
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  .tq3-header-banner span.text b {
+    font-weight: normal;
+    color: #EFDC2E;
+  }
+
+  .tq3-header-banner a,
+  .tq3-header-banner a:visited {
+    display: inline-block;
+    color: #eee;
+    font-family: Lekton, Monaco, "Droid Mono", Consolas, monospace;
+    font-size: 18px;
+    padding: 5px;
+    background-color: #F22F46;
+    border: 1px solid #eee;
+    height: auto;
+    text-decoration: none;
+  }
+
+  .tq3-header-banner a:hover {
+    opacity: 0.7;
+  }
+
+  @media only screen and (max-width: 1120px) {
+    .tq3-header-banner a,
+    .tq3-header-banner span.text {
+      font-size: 14px;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .tq3-header-banner a,
+    .tq3-header-banner span.text {
+      font-size: 12px;
+      line-height: 1em;
+    }
+  }
+</style>
+<div class="tq3-header-banner">
+  <img src="/quest/next/img/fog_owl.gif"/>
+  <span class="text">Level up your Twilio API skills in
+    <b>TwilioQuest</b>, an educational game for Mac, Windows, and Linux.</span>
+  <a href="https://www.twilio.com/quest/download?utm-source=tq3-blog-banner">Download Now</a>
+</div>
+      
+    
+
+    
+    
+      <div role="drawer" class="nav__drawer">
+  <div role="drawer__wrapper" class="nav__drawer-wrapper">
+    <div role="drawer__nav" class="nav__drawer-nav"><span class="nav__drawer-auth"><a href="/login" class="nav__drawer-auth-link">Log In</a><a href="/try-twilio" class="nav__drawer-auth-link">Sign Up</a></span><a href="#close" role="drawer__close" class="nav__drawer-close">Close</a></div>
+    <div class="nav__drawer-menu">
+      <div class="nav__drawer-container">
+        <div class="nav__drawer-grid">
+          <div class="nav__drawer-section">
+            <div role="drawer__header" class="nav__drawer-header">Products</div>
+            <div role="drawer__dropdown" class="nav__drawer-dropdown">
+              <div class="nav__drawer-column">
+                <ul>
+                  <li><a href="/voice-video" class="nav__drawer-link nav__drawer-link--category">Voice &amp; Video</a></li>
+                  <li><a href="/voice" class="nav__drawer-link">Programmable Voice</a></li>
+                  <li><a href="/video" class="nav__drawer-link">Programmable Video</a></li>
+                  <li><a href="/sip-trunking" class="nav__drawer-link">Elastic SIP Trunking</a></li>
+                  <li><a href="/taskrouter" class="nav__drawer-link">TaskRouter</a></li>
+                  <li><a href="/stun-turn" class="nav__drawer-link">Network Traversal</a></li>
+                </ul>
+                <ul>
+                  <li><a href="/messaging" class="nav__drawer-link nav__drawer-link--category">Messaging</a></li>
+                  <li><a href="/sms" class="nav__drawer-link">Programmable SMS</a></li>
+                  <li><a href="/chat" class="nav__drawer-link">Programmable Chat</a></li>
+                  <li><a href="/notify" class="nav__drawer-link">Notify</a></li>
+                </ul>
+              </div>
+              <div class="nav__drawer-column">
+                <ul>
+                  <li>
+                    <div class="nav__drawer-link nav__drawer-link--category">Authentication</div>
+                  </li>
+                  <li><a href="/authy" class="nav__drawer-link">Authy</a></li>
+                </ul>
+                <ul>
+                  <li>
+                    <div class="nav__drawer-link nav__drawer-link--category">Connectivity</div>
+                  </li>
+                  <li><a href="/lookup" class="nav__drawer-link">Lookup</a></li>
+                  <li><a href="/phone-numbers" class="nav__drawer-link">Phone Numbers</a></li>
+                  <li><a href="/wireless" class="nav__drawer-link">Programmable Wireless</a></li>
+                  <li><a href="/sync" class="nav__drawer-link">Sync</a></li>
+                </ul>
+                <ul>
+                  <li>
+                    <div class="nav__drawer-link nav__drawer-link--category">Marketplace</div>
+                  </li>
+                  <li><a href="/marketplace/add-ons" class="nav__drawer-link">Add-ons</a></li>
+                </ul>
+                <ul>
+                  <li>
+                    <div class="nav__drawer-link nav__drawer-link--category">Platform</div>
+                  </li>
+                  <li><a href="/enterprise" class="nav__drawer-link">Enterprise Plan</a></li>
+                  <li><a href="/interconnect" class="nav__drawer-link">Interconnect</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="nav__drawer-section">
+            <div role="drawer__header" class="nav__drawer-header">Use Cases</div>
+            <div role="drawer__dropdown" class="nav__drawer-dropdown">
+              <ul>
+                <li><a href="/use-cases/access-security" class="nav__drawer-link nav__drawer-link--category">Access Security</a></li>
+                <li><a href="/use-cases/call-and-text-marketing" class="nav__drawer-link nav__drawer-link--category">Call &amp; Text Marketing</a></li>
+                <li><a href="/use-cases/collaboration" class="nav__drawer-link nav__drawer-link--category">Collaboration</a></li>
+                <li><a href="/use-cases/commerce-communications" class="nav__drawer-link nav__drawer-link--category">Commerce Communications</a></li>
+                <li><a href="/use-cases/contact-center" class="nav__drawer-link nav__drawer-link--category">Contact Center</a></li>
+              </ul>
+              <hr>
+            </div>
+            <div>
+              <div class="nav__drawer-column">
+                <ul>
+                  <li><a href="/customers" class="nav__drawer-link nav__drawer-link--small">Customer Stories</a></li>
+                  <li><a href="/showcase" class="nav__drawer-link nav__drawer-link--small">Partner Showcase</a></li>
+                  <li><a href="/what-is-cloud-communications?" class="nav__drawer-link nav__drawer-link--small">Why Twilio?</a></li>
+                  <li><a href="/support-plans" class="nav__drawer-link nav__drawer-link--small">Support Plans</a></li>
+                  <li><a href="http://status.twilio.com" class="nav__drawer-link nav__drawer-link--small">Status</a></li>
+                </ul>
+              </div>
+              <div class="nav__drawer-column">
+                <ul>
+                  <li><a href="/docs" class="nav__drawer-link nav__drawer-link--small">API &amp; Docs</a></li>
+                  <li><a href="/blog" class="nav__drawer-link nav__drawer-link--small">Blog</a></li>
+                  <li><a href="/help" class="nav__drawer-link nav__drawer-link--small">Help</a></li>
+                  <li><a href="/company/jobs" class="nav__drawer-link nav__drawer-link--small">Jobs at Twilio</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="nav__sales"><a href="/help/sales" class="nav__sales-button">Talk to Sales</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<nav class="nav js-nav" role="nav" style="background-color: white !important;">
+  <a href="https://www.twilio.com/blog" class="nav-title" data-glinktype="site navigation" data-glinklocation="blog" data-glinkname="logo">
+
+    <span class="nav-logo"></span>
+    <span class="nav-title-label">
+      
+        BLOG
+      
+    </span>
+  </a>
+  <ul class="nav-list">
+    
+    <li class="nav-list-item nav-docs">
+      <a href="https://www.twilio.com/docs/" class="nav-link" data-glinktype="site navigation" data-glinklocation="blog" data-glinkname="docs & help">
+        <svg class="icon-docs" stroke-miterlimit="10" width="11.8" height="14" viewBox="0 0 11.8 14"><g fill="none" stroke="#F22F46"><path d="M11.3 13.5H.5V.5h5.4l5.4 5.4z"></path><path d="M11.3 5.9H5.9V.5"></path></g></svg>
+
+        <span class="nav-docs-label">Docs</span>
+      </a>
+    </li>
+    <li class="nav-list-item nav-login toggle-on-login">
+      <a href="https://www.twilio.com/login" class="nav-link" data-glinktype="site navigation" data-glinklocation="blog" data-glinkname="log in">
+        <svg class="icon-login" width="10.2" height="13.5" viewBox="0 0 10.2 13.5"><g fill="none" stroke="#F22F46" stroke-miterlimit="10"><circle cx="5.1" cy="3" r="2.5"></circle><path d="M.5 13.5c0-2.5 2.1-4.6 4.6-4.6s4.6 2.1 4.6 4.6"></path></g></svg>
+
+        <span class="nav-login-label">Log In</span>
+      </a>
+    </li>
+    <li class="nav-list-item nav-signup toggle-on-login">
+      <a href="https://www.twilio.com/try-twilio" class="nav-link" data-glinktype="site navigation" data-glinklocation="blog" data-glinkname="sign up">
+        <svg class="icon-signup" width="13" height="13" viewBox="0 0 13 13"><path fill="none" stroke="#F22F46" stroke-miterlimit="10" d="M0 6.5h13M6.5 0v13"></path></svg>
+
+        <span class="nav-signup-label">Sign Up</span>
+      </a>
+    </li>
+    <li class="nav-list-item nav-console toggle-on-login hidden">
+      <a href="https://www.twilio.com/console" class="nav-link" data-glinktype="site navigation" data-glinklocation="blog" data-glinkname="console">
+        <svg class="icon-login" width="10.2" height="13.5" viewBox="0 0 10.2 13.5"><g fill="none" stroke="#F22F46" stroke-miterlimit="10"><circle cx="5.1" cy="3" r="2.5"></circle><path d="M.5 13.5c0-2.5 2.1-4.6 4.6-4.6s4.6 2.1 4.6 4.6"></path></g></svg>
+
+        <span class="nav-login-label">Console</span>
+      </a>
+    </li>
+    <li class="nav-list-item nav-dotcom">
+      <a href="https://twilio.com" class="nav-link" data-glinktype="site navigation" data-glinklocation="blog" data-glinkname="twilio.com">
+        <svg class="icon-outbound-link" width="13" height="13" viewBox="0 0 13 13"><path fill="none" stroke="#F22F46" stroke-miterlimit="10" d="M2 2.5h8.5V11M10 3l-8 8"></path></svg>
+
+        <span class="nav-dotcom-label">Twilio</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+    
+
+    
+      
+        <section class="cta js-cta">
+  <div class="cta-content inner-container">
+    <div class="cta-headline h3">
+      
+        Build the future of communications.
+      
+    </div>
+    <a class="cta-action btn btn--outline-red" href="https://twilio.com/try-twilio" data-glinktype="cta-link" data-glinklocation="blog-hero" data-glinkname="signup-start-building-for-free">Start building for free</a>
+  </div>
+</section>
+      
+    
+
+    
+
+    <main class="main inner-container">
+      <aside class="sidebar ">
+        
+          
+
+
+<div class="search">
+    <form action="/blog/search" method="GET">
+  <div class="search">
+    <input class="input input--search search-input" type="search" name="q" placeholder="Search">
+  </div>
+</form>
+
+</div>
+
+
+
+<div class="signup-to-build">
+  <p>Build the future of communications. Start today with Twilio's APIs and services.</p>
+  <a class="btn btn--primary" href="/try-twilio" data-glinktype="cta-link" data-glinklocation="blog-sidebar" data-glinkname="signup-start-building-for-free-2">Start Building for Free</a>
+</div>
+
+
+
+<section class="tags">
+    <p class="tags-header">Posts by Stack</p>
+    <ul class="tags-list">
+      
+        <li class="tag"><a href="/blog/tag/java">Java</a></li>
+      
+        <li class="tag"><a href="/blog/tag/net">.NET</a></li>
+      
+        <li class="tag"><a href="/blog/tag/ruby">Ruby</a></li>
+      
+        <li class="tag"><a href="/blog/tag/php">PHP</a></li>
+      
+        <li class="tag"><a href="/blog/tag/python">Python</a></li>
+      
+        <li class="tag"><a href="/blog/tag/swift">Swift</a></li>
+      
+        <li class="tag"><a href="/blog/tag/arduino">Arduino</a></li>
+      
+        <li class="tag"><a href="/blog/tag/javascript">JavaScript</a></li>
+      
+    </ul>
+  </section>
+
+
+
+<section class="tags">
+  <p class="tags-header">Posts By Product</p>
+  <ul class="tags-list">
+    
+      <li class="tag"><a href="/blog/tag/sms">SMS</a></li>
+    
+      <li class="tag"><a href="/blog/tag/authy">Authy</a></li>
+    
+      <li class="tag"><a href="/blog/tag/voice">Voice</a></li>
+    
+      <li class="tag"><a href="/blog/tag/twilio-client">Twilio Client</a></li>
+    
+      <li class="tag"><a href="/blog/tag/mms">MMS</a></li>
+    
+      <li class="tag"><a href="/blog/tag/video">Video</a></li>
+    
+      <li class="tag"><a href="/blog/tag/task-router">task router</a></li>
+    
+      <li class="tag"><a href="/blog/tag/flex">Flex</a></li>
+    
+      <li class="tag"><a href="/blog/tag/sip">SIP</a></li>
+    
+      <li class="tag"><a href="/blog/tag/iot">IoT</a></li>
+    
+      <li class="tag"><a href="/blog/tag/programmable-chat">Programmable Chat</a></li>
+    
+      <li class="tag"><a href="/blog/tag/studio">Studio</a></li>
+    
+  </ul>
+</section>
+
+
+
+<section class="tags">
+  <p class="tags-header">Categories</p>
+  <ul class="tags-list">
+    
+      <li class="tag--category">
+        <a href="/blog/category/code-tutorials-and-hacks/">Code, Tutorials and Hacks</a>
+      </li>
+    
+      <li class="tag--category">
+        <a href="/blog/category/customer-highlights/">Customer Highlights</a>
+      </li>
+    
+      <li class="tag--category">
+        <a href="/blog/category/developers-drawing-the-owl/">Developers Drawing The Owl</a>
+      </li>
+    
+      <li class="tag--category">
+        <a href="/blog/category/news/">News</a>
+      </li>
+    
+      <li class="tag--category">
+        <a href="/blog/category/stories-from-the-road/">Stories From The Road</a>
+      </li>
+    
+      <li class="tag--category">
+        <a href="/blog/category/the-owls-nest-inside-twilio/">The Owl’s Nest: Inside Twilio</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+  <div class="social-buttons">
+    <a class="btn btn--icon-twitter" href="https://twitter.com/twilio" target="_blank" title="Follow on Twitter">
+      <svg class="icon-twitter" width="17" height="13.7" viewBox="0 0 17 13.7"><path d="M17 1.6c-.6.3-1.3.5-2 .5.7-.4 1.3-1.1 1.5-1.9-.7.4-1.4.7-2.2.8-.6-.6-1.5-1-2.5-1-2 0-3.5 1.5-3.5 3.5 0 .3 0 .5.1.8C5.5 4.1 2.9 2.7 1.2.6.9 1.1.7 1.7.7 2.4c0 1.2.6 2.3 1.6 2.9-.6 0-1.1-.2-1.6-.4C.7 6.6 1.9 8 3.5 8.3c-.3 0-.6.1-.9.1-.2 0-.4 0-.7-.1.4 1.4 1.7 2.4 3.3 2.4-1.2.9-2.7 1.5-4.3 1.5H.1c1.5 1 3.4 1.6 5.3 1.6 6.4 0 9.9-5.3 9.9-9.8v-.4c.6-.7 1.2-1.3 1.7-2"></path></svg>
+
+      Twitter
+    </a>
+    <a class="btn btn--icon-facebook" href="https://www.facebook.com/TeamTwilio" target="_blank" title="Follow on Facebook">
+      <svg class="icon-facebook" width="16" height="16" viewBox="0 0 16 16"><path d="M14.5 0h-13C.7 0 0 .7 0 1.5v13.1c0 .7.7 1.4 1.5 1.4H8V9.3H6v-2h2v-2c0-1.7.7-2.7 2.7-2.7h2v2h-.9c-.6 0-1.1.5-1.1 1.1v1.5h2.7l-.3 2h-2.3V16h3.9c.8 0 1.5-.7 1.5-1.5v-13C16 .7 15.3 0 14.5 0z"></path></svg>
+
+      Facebook
+    </a>
+  </div>
+
+
+
+<section class="subscribe">
+  <h3 class="subscribe-header">Developer stories<br />to your inbox.</h3>
+  <p>Subscribe to the Developer Digest, a monthly dose of all things code.</p>
+    <form id="1451" novalidate="" _lpchecked="1">
+        <div class="input-wrapper">
+          <input class="input__honey field-size-top-large" id="field0" name="field_Email" type="email" placeholder="Enter your email&hellip;" required="required" />
+          <input class="input__email field-size-top-large" id="email" name="email" type="email" placeholder="Enter your email&hellip;" autocomplete="nope" required="required" />
+          <aside class="error_message small">Please enter a valid email address.</aside>
+        </div>
+        <input type="hidden" id="uTMContentInquiry" name="field_uTMContentInquiry" value="">
+        <input type="hidden" id="uTMCampaignInquiry" name="field_uTMCampaignInquiry" value="">
+        <input type="hidden" id="uTMMediumInquiry" name="field_uTMMediumInquiry" value="">
+        <input type="hidden" id="uTMSourceInquiry" name="field_uTMSourceInquiry" value="">
+        <input type="hidden" id="uTMTermInquiry" name="field_uTMTermInquiry" value="">
+        <input type="hidden" id="previousPage" name="field_previousPage" value="">
+        <input type="hidden" id="assetPage" name="field_assetPage" value="">
+        <input type="hidden" id="heapID" name="field_heapID" value="">
+        <input type="hidden" id="gCLIDURL" name="field_gCLIDURL" value="">
+        <input type="hidden" id="gCLID" name="field_gCLID" value="">
+        <input type="hidden" id="Lead_Source_Most_Recent_ELOQUA__c" name="field_Lead_Source_Most_Recent_ELOQUA__c" value="Full Service Request">
+        <input type="hidden" id="underTwilioPrivacyPolicy" name="field_underTwilioPrivacyPolicy" value="true">
+        <button id="submit" type="submit">
+          <span class="icon">
+            <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z" fill="#fff"></path></svg>
+          </span>
+          <span class="success">All set! Check your email.</span>
+        </button>
+    </form>
+  <p class="small">
+    You may unsubscribe at any time using the unsubscribe link in the digest email. See our <a href="https://www.twilio.com/legal/privacy">privacy policy</a> for more information.
+  </p>
+</section>
+
+
+
+<a class="promo" href="http://www.twilio.com/docs/tutorials">
+  <div class="promo-callout">New!</div>
+  <div class="promo-content">
+    <div class="promo-headline"> Tutorials</div>
+    <div class="promo-body">Sample  applications that cover common use cases in a variety of languages. Download, test drive, and tweak them yourself.</div>
+    <div class="promo-action link">Get started</div>
+  </div>
+</a>
+
+
+        
+        
+      </aside>
+
+      <section class="column">
+        
+          <ul class="article-list">
+        
+          
+          
+    
+      
+
+
+<article class="article not-loaded">
+  <header class="article-header">
+  <div class="article-meta">
+    <div class="article-authors">
+      <img src="https://www.gravatar.com/avatar/3d5349571810cf24cd2c2fe905607464?d=https%3A%2F%2Fwww.twilio.com%2Fmarketing%2Fbundles%2Fcompany-brand%2Fimg%2Flogos%2Fred%2Ftwilio-mark-red.png&amp;s=40">
+      By <a href="/blog/author/mmakai">Matt Makai</a>
+      <span class="article-published">2020-06-02</span>
+    </div>
+    <div class="social-buttons">
+      <a class="btn btn--icon-twitter" href="https://twitter.com/intent/tweet?url=https://www.twilio.com/blog/como-enviar-mensagens-whatsapp-python&text=Como enviar Mensagens de Whatsapp em 30 segundos com Python&via=twilio" target="_blank" title="Share on Twitter">
+        <svg class="icon-twitter" width="17" height="13.7" viewBox="0 0 17 13.7"><path d="M17 1.6c-.6.3-1.3.5-2 .5.7-.4 1.3-1.1 1.5-1.9-.7.4-1.4.7-2.2.8-.6-.6-1.5-1-2.5-1-2 0-3.5 1.5-3.5 3.5 0 .3 0 .5.1.8C5.5 4.1 2.9 2.7 1.2.6.9 1.1.7 1.7.7 2.4c0 1.2.6 2.3 1.6 2.9-.6 0-1.1-.2-1.6-.4C.7 6.6 1.9 8 3.5 8.3c-.3 0-.6.1-.9.1-.2 0-.4 0-.7-.1.4 1.4 1.7 2.4 3.3 2.4-1.2.9-2.7 1.5-4.3 1.5H.1c1.5 1 3.4 1.6 5.3 1.6 6.4 0 9.9-5.3 9.9-9.8v-.4c.6-.7 1.2-1.3 1.7-2"></path></svg>
+        Twitter
+      </a>
+      <a class="btn btn--icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://www.twilio.com/blog/como-enviar-mensagens-whatsapp-python" target="_blank" title="Share on Facebook">
+        <svg class="icon-facebook" width="16" height="16" viewBox="0 0 16 16"><path d="M14.5 0h-13C.7 0 0 .7 0 1.5v13.1c0 .7.7 1.4 1.5 1.4H8V9.3H6v-2h2v-2c0-1.7.7-2.7 2.7-2.7h2v2h-.9c-.6 0-1.1.5-1.1 1.1v1.5h2.7l-.3 2h-2.3V16h3.9c.8 0 1.5-.7 1.5-1.5v-13C16 .7 15.3 0 14.5 0z"></path></svg>
+        Facebook
+      </a>
+      <a class="btn btn--icon-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&source=Twilio%20Blog&title=Como%20enviar%20Mensagens%20de%20Whatsapp%20em%2030%20segundos%20com%20Python&url=https://www.twilio.com/blog/como-enviar-mensagens-whatsapp-python" target="_blank" title="Share on LinkedIn">
+        <svg class="icon-linkedin" width="16" height="16" viewBox="0 0 12 12"><path d="M2.9,1.5C2.9,2.3,2.3,3,1.5,3C0.7,3,0,2.3,0,1.5C0,0.7,0.7,0,1.5,0C2.3,0,2.9,0.7,2.9,1.5z M2.7,4H0.2v8
+	h2.5V4z M6.7,4H4.3v8h2.4c0,0,0-3,0-4.2C6.7,6.7,7.2,6,8.2,6c0.9,0,1.3,0.6,1.3,1.8c0,1.2,0,4.2,0,4.2H12c0,0,0-2.9,0-5.1
+	c0-2.1-1.2-3.2-2.9-3.2c-1.7,0-2.4,1.3-2.4,1.3V4L6.7,4z"></path></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+  <h1 class="article-title">Como enviar Mensagens de Whatsapp em 30 segundos com Python</h1>
+  </header>
+  <section class="article-content">
+    <p id="header_image"><img alt="Como enviar Mensagens de Whatsapp em 30 segundos com Python" height="328" sizes="808px" src="https://twilio-cms-prod.s3.amazonaws.com/images/SJtvesnDoPaHn8f15d5WQK82Sy-FWhUKDXVajY2sN_0PS2.width-808.jpg" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/SJtvesnDoPaHn8f15d5WQK82Sy-FWhUKDXVajY2sN_0PS2.width-808.jpg 808w, https://twilio-cms-prod.s3.amazonaws.com/images/SJtvesnDoPaHn8f15d5WQK82Sy-FWhUKDXVajY2sN_0PS.width-1616.jpg 808w" width="808"></p>
+    <div class="block-rich_text"><div class="rich-text"><p><a href="https://www.whatsapp.com/">WhatsApp</a> é um serviço de mensagem <em>over-the-top</em> (OTT) amplamente utilizado ao redor do mundo. Nesse tutorial, nós vamos aprender como enviar mensagens de Whatsapp utilizando a API de mensagens da Twilio, com código reutilizável que pode ser adicionado a qualquer aplicativo Python.</p>
+<h2>Configurando o ambiente de desenvolvimento</h2>
+<p>Precisamos das seguintes dependências instalados em nosso ambiente de desenvolvimento local para enviar mensagens de Whatsapp.</p>
+<ul>
+<li>Python na versão 3.7+</li>
+<li><a href="https://www.twilio.com/try-twilio">Uma conta gratuita da Twilio</a> com o <a href="https://www.twilio.com/console/sms/whatsapp/sandbox">WhatsApp Sandbox ativado</a></li>
+<li>A biblioteca <a href="https://www.twilio.com/docs/libraries/python">Twilio Python Helper</a></li>
+</ul>
+<p>Se você não tem o Python já instalado na sua máquina, você pode ir no link <a href="https://python.org">python.org</a> e instalar a última versão.</p>
+<p>O próximo passo é <a href="https://www.twilio.com/console">logar na sua conta da Twilio</a> ou criar uma <a href="https://www.twilio.com/try-twilio">nova conta gratuita</a>.</p>
+<p>Acesse o <a href="https://www.twilio.com/console">Console da Twilio</a> e guarde o <em>Account SID</em> e o <em>Auth Token</em> da sua conta. O <em>Account SID</em> é um identificador único para sua conta, enquanto o <em>Auth Token </em>é uma chave secreta que nunca deve ser compartilhada; caso outra pessoa tenha sua chave, ela vai ter completo acesso a sua conta da Twilio.</p>
+<p>Agora nós precisamos definir <a href="https://www.twilio.com/docs/usage/secure-credentials">variáveis de ambiente</a> para guardar nossas credenciais da Twilio, que vão permitir que o código Python acesse nossa conta da Twilio e use a API.</p>
+<p><img alt="account sid" class="richtext-image left" height="266" sizes="500px" src="https://twilio-cms-prod.s3.amazonaws.com/images/iaYzvJj384smN5AKB0edsXyDRXjFrOQBBcXoC9No5pRp6u.width-500.png" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/iaYzvJj384smN5AKB0edsXyDRXjFrOQBBcXoC9No5pRp6u.width-500.png 500w, https://twilio-cms-prod.s3.amazonaws.com/images/iaYzvJj384smN5AKB0edsXyDRXjFrOQBBcXoC9No5pRp6.width-1000.png 1000w" width="500"></p>
+<p>Copie o <em>Account SID</em> e abra seu terminal. Execute o comando abaixo para definir a variável de ambiente <code>TWILIO_ACCOUNT_SID</code>, cole seu <em>Account SID</em> entre as aspas simples.</p></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <pre class="twlo-code"><code class="bash">export TWILIO_ACCOUNT_SID='ACxxxxxxxx' # Cole seu Account SID entre as aspas simples
+</code></pre>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p><img alt="Auth token" class="richtext-image left" height="185" sizes="500px" src="https://twilio-cms-prod.s3.amazonaws.com/images/d_0K9msWv83bwian1AbgJ0lfvjn0zpc1BbUpY2YeiLbzOK.width-500.png" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/d_0K9msWv83bwian1AbgJ0lfvjn0zpc1BbUpY2YeiLbzOK.width-500.png 500w, https://twilio-cms-prod.s3.amazonaws.com/images/d_0K9msWv83bwian1AbgJ0lfvjn0zpc1BbUpY2YeiLbzO.width-1000.png 1000w" width="500"></p>
+<p>Copie o <em>A</em><em>uth Token</em> e cole ele entre as aspas simples na variável de ambiente <code>TWILIO_AUTH_TOKEN</code> e execute  o seguinte comando:</p></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <pre class="twlo-code"><code class="bash">export TWILIO_AUTH_TOKEN='secret auth token' # Cole seu Auth Token entre as aspas simples
+</code></pre>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p>Nossas variáveis de ambiente estão configuradas, vamos agora escrever nosso script python e fazer alguns testes.</p>
+<h2>Código Python para enviar mensagens de Whatsapp</h2>
+<p>Crie um novo <a href="https://www.fullstackpython.com/virtual-environments-virtualenvs-venvs.html">ambiente virtual</a> com o seguinte comando usando o módulo <code><a href="https://docs.python.org/3/tutorial/venv.html">venv</a></code> do Python:</p></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <pre class="twlo-code"><code class="bash">$ python3 -m venv pywhatsapp
+</code></pre>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p>Ative o ambiente virtual:</p></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <pre class="twlo-code"><code class="bash">$ source pywhatsapp/bin/activate  # for Unix and Mac OS
+$ env\Scripts\activate         # for Windows
+
+</code></pre>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p>Instale a biblioteca Python da Twilio no seu ambiente virtual:</p></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <pre class="twlo-code"><code class="bash">$ pip install twilio
+</code></pre>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p>Crie um arquivo chamado <code>whatsapp.py</code> e escreva ou cole o seguinte código:</p></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <pre class="twlo-code"><code class="python">from twilio.rest import Client
+import os
+
+# as credenciais são recuperadas das variáveis de ambiente TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN
+client = Client()
+
+# esse é o numero de teste da sandbox da Twilio
+from_whatsapp_number='whatsapp:+14155238886'
+# substitua esse número com o seu próprio número do Whatsapp
+to_whatsapp_number='whatsapp:+15005550006'
+
+client.messages.create(body='Ahoy, world!',
+                      from_=from_whatsapp_number,
+                      to=to_whatsapp_number)
+</code></pre>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p>O código acima importa a biblioteca python da Twilio para envio de mensagens, instância o cliente da biblioteca, configura um número de Whatsapp de origem (<em>from</em>), um número de destino (<em>to</em>) então envia uma única mensagem chamando a função <code>client.messages.create</code>. A classe <code>Client()</code> lê automaticamente o <em>Account SID</em> e <em>Auth Token</em> das variáveis de ambiente. Você também pode passar as credenciais como argumento ao instanciar a classe, ambas abordagens funcionam.  Confira <a href="https://www.twilio.com/docs/libraries/python">alguns exemplos na documentação da Twilio</a>.</p>
+<p>Nosso script python está pronto e nós apenas precisamos ativar o Whatsapp Sandbox da Twilio para testá-lo.</p>
+<h2>Enviando mensagens no Whatsapp</h2>
+<p>Vá para a <a href="https://www.twilio.com/console/sms/whatsapp/sandbox">página do Whatsapp no Console da Twilio</a>  e ative seu Sandbox.</p>
+<p><img alt="WhatsApp sandbox" class="richtext-image left" height="239" sizes="500px" src="https://twilio-cms-prod.s3.amazonaws.com/images/cu6zG0LcEk0m1njxcSe4og3ikd6lgNLFzbYfCEqp0foJXd.width-500.png" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/cu6zG0LcEk0m1njxcSe4og3ikd6lgNLFzbYfCEqp0foJXd.width-500.png 500w, https://twilio-cms-prod.s3.amazonaws.com/images/cu6zG0LcEk0m1njxcSe4og3ikd6lgNLFzbYfCEqp0foJX.width-1000.png 500w" width="500"></p>
+<p>Você será redirecionado para a página acima, que vai mostrar instruções de como você pode conectar à sua sandbox enviando uma mensagem de whatsapp a partir do seu dispositivo. No meu caso, eu preciso enviar <code>join science-physical</code> para +14155238886.</p>
+<p>Agora estamos prontos para executar nosso código Python e enviar nossa primeira mensagem Whatsapp.</p>
+<p>Voltando para o terminal, verifique se seu ambiente virtual ainda está ativo e suas variáveis de ambiente, <code>TWILIO_ACCOUNT_SID</code> e <code>TWILIO_AUTH_TOKEN</code>, estão exportadas, antes de executar o seguinte comando:</p></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <pre class="twlo-code"><code class="bash">python whatsapp.py
+</code></pre>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p>Confira no seu app do Whatsapp, você deve ver sua primeira mensagem de whatsapp enviada através da API da Twilio.</p>
+<p><img alt="demo" class="richtext-image left" height="1082" sizes="500px" src="https://twilio-cms-prod.s3.amazonaws.com/images/OiNP0LgfB4wnGc_tA-IGpPWP0umeRFgO-9Ht81oDrwbT0o.width-500.png" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/OiNP0LgfB4wnGc_tA-IGpPWP0umeRFgO-9Ht81oDrwbT0o.width-500.png 500w, https://twilio-cms-prod.s3.amazonaws.com/images/OiNP0LgfB4wnGc_tA-IGpPWP0umeRFgO-9Ht81oDrwbT0.width-1000.png 500w" width="500"></p>
+<h2>Próximos passos!</h2>
+<p>Nesse tutorial, nós aprendemos como enviar mensagens de Whatsapp usando a API da Twilio. Agora você pode tentar seguir esses outros tutoriais (em inglês) para fazer ainda mais com a API do Twilio:</p>
+<ul>
+<li>Experimente os <a href="https://www.twilio.com/console/sms/whatsapp/learn">templates de mensagem do Whatsapp</a> </li>
+<li>Aprenda como <a href="https://www.twilio.com/docs/whatsapp/quickstart/python#receive-and-reply-to-messages-from-whatsapp">receber e responder mensagens do WhatsApp </a> </li>
+<li>Trabalhe com <a href="https://www.twilio.com/docs/sms/whatsapp/quickstart/python#sign-up-for-twilio-and-activate-the-sandbox">Twilio WhatsApp Quickstart Docs</a> para aprender mais</li>
+</ul></div></div>
+    <div class="article-columns">
+      <div class="article-column">
+        
+<div class="rating-wrapper">
+  <div class="rating-stars " data-rating="0">
+    <span class="rating-label">Rate this post</span>
+  </div>
+</div>
+
+
+      </div>
+      <div class="article-column">
+        <div class="article-coauthors">
+          <div class="article-coauthors-label">Authors</div>
+          <ul class="article-coauthors-list">
+            <li>
+              <img src="https://www.gravatar.com/avatar/3d5349571810cf24cd2c2fe905607464?d=https%3A%2F%2Fwww.twilio.com%2Fmarketing%2Fbundles%2Fcompany-brand%2Fimg%2Flogos%2Fred%2Ftwilio-mark-red.png&amp;s=40">
+              <a href="/blog/author/mmakai">Matt Makai</a>
+            </li>
+            
+            
+            
+          </ul>
+        </div>
+        
+        <div class="article-coauthors">
+          <div class="article-coauthors-label">Reviewers</div>
+          <ul class="article-coauthors-list">
+            
+            <li>
+              <img src="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?d=mm&amp;s=40">
+              <a href="/blog/author/gcavalcante">Gabriela Cavalcante</a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+
+    
+
+    
+
+    
+  </section>
+</article>
+
+
+    
+    
+
+        
+          </ul>
+        
+      </section>
+    </main>
+
+    
+    <div class="prefooter">
+      
+        <a class="btn btn-large" href="https://www.twilio.com/try-twilio" data-glinktype="cta-link" data-glinklocation="blog-footer" data-glinkname="signup-sign-up-start-building">Sign up and start building</a>
+        <div class="secondary-action">
+          Not ready yet? <a href="https://www.twilio.com/help/sales" class="underline" data-glinktype="cta-link" data-glinklocation="blog-footer" data-glinkname="sales-talk-to-an-expert">Talk to an expert.</a>
+        </div>
+      
+    </div>
+    
+
+
+<footer class="twlo-footer">
+  <div class="twlo-footer__logo" title="Twilio">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+      <path fill="currentColor" d="M15 0C6.7 0 0 6.7 0 15s6.7 15 15 15 15-6.7 15-15S23.3 0 15 0zm0 26C8.9 26 4 21.1 4 15S8.9 4 15 4s11 4.9 11 11-4.9 11-11 11z"/>
+      <circle fill="currentColor" cx="18.7" cy="11.3" r="3.1"/>
+      <circle fill="currentColor" cx="18.7" cy="18.7" r="3.1"/>
+      <circle fill="currentColor" cx="11.3" cy="18.7" r="3.1"/>
+      <circle fill="currentColor" cx="11.3" cy="11.3" r="3.1"/>
+    </svg>
+  </div>
+  <ul class="twlo-footer__list">
+    <li class="twlo-footer__list-item">
+      <a href="/company" class="twlo-footer__link">About</a>
+    </li>
+    <li class="twlo-footer__list-item">
+      <a href="/legal" class="twlo-footer__link">Legal</a>
+    </li>
+    <li class="twlo-footer__list-item">
+      Copyright &copy; 2020 Twilio Inc.
+    </li>
+    <li class="twlo-footer__list-item">
+      All Rights Reserved.
+    </li>
+    <li class="twlo-footer__list-item">
+      Protected by reCAPTCHA – <a href="https://policies.google.com/privacy" target="_blank" class="legal__link">Privacy</a> – <a href="https://policies.google.com/terms" target="_blank"class="legal__link">Terms</a>
+    </li>
+  </ul>
+</footer>
+
+
+
+    
+<div id="feedback-form-modal" class="twlo-modal-overlay">
+  <form id="feedback" method="POST" action="/docs/submit-feedback">
+    <div class="twlo-modal">
+      <span class="twlo-modal__close close">
+        <svg class="icon-close" fill="#233659" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+          <path d="M15 4l-5 5 5 5v1h-1l-5-5-5 5H3v-1l5-5-5-5V3h1l5 5 5-5h1v1z"/>
+        </svg>
+      </span>
+      <h2 class="twlo-modal__title">Thanks for rating this post!</h2>
+      <p class="twlo-modal__body">
+We are always striving to improve our blog quality, and your feedback is valuable to us. How could this post serve you better?
+</p>
+
+      
+
+<input type="hidden" name="star_rating" value="">
+<input type="hidden" name="page" value="20978">
+<input type="hidden" name="requested_path" value="/blog/como-enviar-mensagens-whatsapp-python">
+
+<input type="hidden" name="csrfmiddlewaretoken" value="64w9bFM5oQZXV6uNV10zr8ZreYLECyi4M9fgRW7jHMTYwNjg1OTY0MC4yNjU0OTg">
+<input type="hidden" name="recaptcha" value="">
+
+
+<div class="feedback-countries">
+<label for="countries">If applicable fill in the countries where you are using Twilio</label><br/>
+<input id="countries" name="countries" value="" ><br/>
+</div>
+
+<textarea class="twlo-modal__textarea" name="comment" placeholder="Suggestions..."></textarea>
+
+<button id="feedback-submit-btn" type="button" class="twlo-btn">Send your suggestions</button>
+
+
+      <div class="twlo-modal__footer">
+        
+        <div class="rc-anchor-pt">
+          Protected by reCAPTCHA – <a href="https://www.google.com/intl/en/policies/privacy/" target="_blank">Privacy</a><span aria-hidden="true" role="presentation"> - </span><a href="https://www.google.com/intl/en/policies/terms/" target="_blank">Terms</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div id="sending-feedback-modal" class="twlo-modal-overlay">
+  <div class="twlo-loading loading-no-bg">
+    <div class="twlo-loading__inner">
+      <div class="twlo-loading__spinner">
+        <svg><circle cx="25" cy="25" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg>
+      </div>
+      <div class="twlo-loading__message">
+        Sending your feedback...
+      </div>
+    </div>
+  </div>
+</div>
+<div id="feedback-sent-modal" class="twlo-modal-overlay">
+  <div class="twlo-modal__submit-message">
+  🎉 Thank you for your feedback!
+  </div>
+</div>
+<div id="feedback-error-modal" class="twlo-modal-overlay">
+  <div class="twlo-modal__submit-message">
+  Something went wrong. Please try again.
+  </div>
+</div>
+
+
+
+
+
+    
+    <script src="/docs/static/js/vendor.min.9b4b3c8b0.js"></script>
+    
+
+  
+
+  <!-- Mixpanel -->
+  <script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+  typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,
+    e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+    mixpanel.init("f71c19735fa6ecc5225ff563285e1794");
+    </script>
+  
+
+  
+    <!-- Eloqua -->
+    <script type="text/javascript">
+    var _elqQ = _elqQ || [];
+    _elqQ.push(['elqSetSiteId', '815114181']);
+    _elqQ.push(['elqTrackPageView']);
+    _elqQ.push(['elqUseFirstPartyCookie', 'www.twilio.com']);
+
+    (function () {
+      function async_load() {
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+        s.src = '//img03.en25.com/i/elqCfg.min.js';
+        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+      }
+      if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
+      else if (window.attachEvent) window.attachEvent('onload', async_load);
+    })();
+    </script>
+  
+
+  
+    <!-- Transifex -->
+    <script type="text/javascript">
+    window.liveSettings = {
+      api_key: '4c06c1c5a6b341e591d969476fe2675f'
+    };
+    </script>
+    <script type="text/javascript" src="//cdn.transifex.com/live.js"></script>
+    <style>
+    .txlive-langselector { display: none; }
+    </style>
+  
+
+  
+
+
+
+
+    
+      <script src="/docs/static/js/blog.min.9b4b3c8b0.js"></script>
+    
+
+    
+    
+
+    
+
+
+    
+
+    <!-- Initialize recaptcha v3 -->
+<script src="https://www.google.com/recaptcha/api.js?render=6Ld1J2sUAAAAAEzfAkJKSWq8Za2Bt9Hw-rpCbBE9"></script>
+<script type="application/javascript">window.reCAPTCHASiteKey = "6Ld1J2sUAAAAAEzfAkJKSWq8Za2Bt9Hw-rpCbBE9";</script>
+
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+    <script type="text/javascript">
+    window.twilio.SIGNUP_LINK_PATTERNS = [ new RegExp('^https?:\/\/(www.)?twilio.com\/try-twilio'), ]
+</script>
+  </body>
+
+</html>

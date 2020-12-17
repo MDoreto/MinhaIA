@@ -1,0 +1,116 @@
+Imprime o arquivo pra mim,printFile
+Imprime 3 cópias do arquivo pra mim,printFile
+Abre o programa  pra mim,openProgram
+Pode imprimir o arquivo,printFile
+Abre o photoshop pra mim,openProgram
+Abre o Cubase,openProgram
+abre o CS,openProgram
+abra o Elite Dangerous,openProgram
+abra o premiere,openProgram
+Qual a temperatura agora,temperature
+Quantos graus está fazendo,temperature
+quantos graus fará amanhã,temperature
+Imprima o arquivo curriculo,printFile
+Vai fazer frio amanhã,temperature
+qual o proximo jogo do são paulo,nextMatch
+qual o proximo jogo do santos,nextMatch
+qual o proximo jogo do icasa,nextMatch
+qual a proxima partida do Barcelona na Champions League,nextMatch
+qual o proximo jogo do grêmio no brasileiro,nextMatch
+qual a proxima partida do inter,nextMatch
+Quem é bill gates,googleSearch
+quem foi Isaac Newtow,googleSearch
+quem era ayrton Senna,googleSearch
+qual o valor das ações do itau,stockValue
+quanto custa uma ação da petrobras,stockValue
+quanto vale as ações do bradesco,stockValue
+Cheque meu e-mail,checkGmail
+Verifique meu e-mail,checkGmail
+leia meus e-mails,checkGmail
+confere meus e-mails,checkGmail
+lê meus e-mails,checkGmail
+qual a posição do São paulo,posTeam
+em que posição esta o inter no brasileiro,posTeam
+qual a colocação do palmeiras na libertadores,posTeam
+qual a capital do brasil,locate
+qual a capital da australia,locate
+onde fica a frança,locate
+onde fica a italia,locate
+onde fica a rua joão pessoa,locate
+onde fica las vegas,locate
+qual o menor preço de uma batedeira planetaria arno,findPrice
+quanto custa uma rtx 2070,findPrice
+quanto custa um hd seagate de um tera,findPrice
+qual o preço de um corsa,findPrice
+qual o menor valor de um monitor 4k,findPrice
+qual o melhor preço de um pendrive 32gb,findPrice
+procura a música no spotify pra mim,spotifySearch
+toca,spotifySearch
+toca,spotifySearch
+toca a música,spotifySearch
+coloca no spotify,spotifySearch
+procura a música,spotifySearch
+procura o clip da musica,youtubeSearch
+procura o video,youtubeSearch
+procura a música no youtube,youtubeSearch
+procura o  clip no youtube,youtubeSearch
+Manda uma mensagem pro milton falando que,whatsAppSend
+responde a mozinho falando que,whatsAppSend
+diz pra marcele que,whatsAppSend
+fala pra lisa que,whatsAppSend
+envia uma mensagem pro pastor caio falando que,whatsAppSend
+qual o menor preço de um monitor 4k,findPrice
+qual a capital do amazonas,locate
+qual o próximo jogo do crato,nextMatch
+manda uma mensagem em sp falando que o bote está ficando inteligente,whatsAppSend
+procurar a música a oração quarteto gileade no spotify,spotifySearch
+quanto custa um superlux hd681,findPrice
+qual o menor preço de xiaomi mi 9,findPrice
+procura a música we are the world no spotify,spotifySearch
+manda mensagem para marcele falando que o bob está funcionando melhor ainda,whatsAppSend
+abra o cubase,openProgram
+abra o spotify,openProgram
+abre o photoshop,openProgram
+abrir word,openProgram
+abra o photoshop,openProgram
+comprar o photoshop,openProgram
+photoshop,openProgram
+abrir photoshop,openProgram
+manda mensagem para amorzinho falando que o jarvis é top,whatsAppSend
+manda uma mensagem para irmandade falando que o jarvis é god,whatsAppSend
+toca dead or alive bon jovi,spotifySearch
+imprimir currículo,printFile
+imprime etiquetacoco,printFile
+imprime currículo,printFile
+imprimir o arquivo declaração marcele,printFile
+imprimir o arquivo cv mateus,printFile
+imprimir arquivo cv matheus,printFile
+imprimir o arquivo cv matheus,printFile
+imprimir 3 cópias do arquivo cv matheus,printFile
+imprimir duas cópias do arquivo cv matheus,printFile
+imprimir 4 cópias do arquivo declaração marcele,printFile
+abrir o photoshop para mim,openProgram
+abre o premiere,openProgram
+aumenta o volume,openProgram
+qual o próximo jogo do são paulo,nextMatch
+vai chover amanhã,temperature
+qual a chance de chuva amanhã,temperature
+deve chover amanha,temperature
+qual a previsão do tempo para domingo,temperature
+qual a previsão do tempo para amanhã,temperature
+quantos graus vai fazer na sexta-feira,temperature
+quantos graus está fazendo agora,temperature
+fala para marcele que eu tô cansado,whatsAppSend
+manda mensagem para marcele falando que eu tô cansado,whatsAppSend
+imprimir 3 cópias de etiqueta,printFile
+imprimir o arquivo morango,printFile
+abre a disney plus na tv,openAppTv
+abre a netflix na tv,openAppTv
+abre a amazom prime na tv,openAppTv
+abre a twitch na tv,openAppTv
+abre a disney na tv para mim,openAppTv
+abre a prime na tv pra mim,openAppTv
+abre a disney plus na tv,openAppTv
+abre a disney na tv,openAppTv
+disney na tv,openAppTv
+abrir a amazon na tv,openAppTv

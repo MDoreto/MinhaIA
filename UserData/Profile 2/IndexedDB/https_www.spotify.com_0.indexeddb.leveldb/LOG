@@ -1,0 +1,5 @@
+2020/12/01-14:38:27.363 3788 Reusing MANIFEST C:\Users\mathe\AppData\Local\Google\Chrome\User Data\Profile 2\IndexedDB\https_www.spotify.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/12/01-14:38:46.382 2af8 Level-0 table #5: started
+2020/12/01-14:38:46.385 2af8 Level-0 table #5: 1529 bytes OK
+2020/12/01-14:38:46.390 2af8 Delete type=0 #3
+2020/12/01-14:38:46.390 2af8 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
