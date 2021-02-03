@@ -536,7 +536,7 @@ def spotifySearch(string):
 	browser_temp.get('https://open.spotify.com/search')
 	if 'músicas' in music or 'playlist' in music or 'favoritas' in music:
 		ui.WebDriverWait(browser_temp, 10).until(EC.element_to_be_clickable((By.XPATH, "//a[@class='ac0df040748287f39652cc42e3b762ba-scss']"))).click()
-		ui.WebDriverWait(browser_temp, 15).until(EC.element_to_be_clickable((By.XPATH, "//button[@title='Play']"))).click()
+		ui.WebDriverWait(browser_temp, 15).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='main']/div/div[2]/div[3]/main/div[2]/div[2]/div/div/div[2]/section/div[3]/div/button"))).click()
 	else:
 		ui.WebDriverWait(browser_temp, 10).until(EC.element_to_be_clickable((By.XPATH, "//input[@class='_748c0c69da51ad6d4fc04c047806cd4d-scss']"))).send_keys(music)
 		ui.WebDriverWait(browser_temp, 10).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='_9811afda86f707ead7da1d12f4dd2d3e-scss']"))).click()
