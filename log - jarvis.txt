@@ -5,12 +5,20 @@
     busca por pessoa
     busca por local
     busca por jogos e tabela
-    abrir programas
+    abrir programas e arquivos
     imprimir arquivos
     temperatura atual e previsão
     leitura de emails
-    controle de volume
+    controle de multimidia
     busca preço minimo de produtos
     busca musicas spotify
     busca videos 
     envia mensagem no whats
+    converte medidas e moedas
+    abre aplicativos na tv
+    verifica agenda
+    adiciona eventos na agenda
+    tem um nome hehe
+    desliga o pc
+    resolve operações matemáticas
+    busca qualquer informação no google

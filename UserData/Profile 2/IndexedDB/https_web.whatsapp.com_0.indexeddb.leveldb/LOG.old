@@ -1,13 +1,3 @@
-2020/12/11-06:41:05.187 248 Reusing MANIFEST C:\Users\mathe\OneDrive\Área de Trabalho\jarvis\UserData\Profile 2\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2020/12/11-06:41:05.187 248 Recovering log #19
-2020/12/11-06:41:05.224 248 Reusing old log C:\Users\mathe\OneDrive\Área de Trabalho\jarvis\UserData\Profile 2\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000019.log 
-2020/12/11-06:41:14.886 51b8 Level-0 table #24: started
-2020/12/11-06:41:14.915 51b8 Level-0 table #24: 1100391 bytes OK
-2020/12/11-06:41:14.919 51b8 Delete type=0 #19
-2020/12/11-06:41:28.296 30b0 Compacting 1@1 + 1@2 files
-2020/12/11-06:41:28.370 30b0 Generated table #25@1: 56457 keys, 2235915 bytes
-2020/12/11-06:41:28.381 30b0 Generated table #26@1: 4257 keys, 236774 bytes
-2020/12/11-06:41:28.382 30b0 Compacted 1@1 + 1@2 files => 2472689 bytes
-2020/12/11-06:41:28.384 30b0 compacted to: files[ 0 0 2 0 0 0 0 ]
-2020/12/11-06:41:28.384 30b0 Delete type=2 #21
-2020/12/11-06:41:28.384 30b0 Delete type=2 #24
+2020/12/18-09:40:06.304 2e68 Reusing MANIFEST C:\Users\mathe\OneDrive\Área de Trabalho\jarvis\UserData\Profile 2\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/12/18-09:40:06.305 2e68 Recovering log #23
+2020/12/18-09:40:06.313 2e68 Reusing old log C:\Users\mathe\OneDrive\Área de Trabalho\jarvis\UserData\Profile 2\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000023.log 

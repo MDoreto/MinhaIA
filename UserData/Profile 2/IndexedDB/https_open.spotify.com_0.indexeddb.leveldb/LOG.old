@@ -1,3 +1,5 @@
-2020/12/09-17:01:52.287 40c4 Reusing MANIFEST C:\Users\mathe\OneDrive\Área de Trabalho\jarvis\UserData\Profile 2\IndexedDB\https_open.spotify.com_0.indexeddb.leveldb/MANIFEST-000001
-2020/12/09-17:01:52.287 40c4 Recovering log #3
-2020/12/09-17:01:52.310 40c4 Reusing old log C:\Users\mathe\OneDrive\Área de Trabalho\jarvis\UserData\Profile 2\IndexedDB\https_open.spotify.com_0.indexeddb.leveldb/000003.log 
+2021/02/03-11:13:04.952 a84 Reusing MANIFEST C:\Users\mathe\OneDrive\Área de Trabalho\jarvis\UserData\Profile 2\IndexedDB\https_open.spotify.com_0.indexeddb.leveldb/MANIFEST-000001
+2021/02/03-11:13:04.952 a84 Recovering log #23
+2021/02/03-11:13:04.955 a84 Reusing old log C:\Users\mathe\OneDrive\Área de Trabalho\jarvis\UserData\Profile 2\IndexedDB\https_open.spotify.com_0.indexeddb.leveldb/000023.log 
+2021/02/03-11:13:04.955 a84 Delete type=2 #21
+2021/02/03-11:13:04.955 a84 Delete type=2 #24
