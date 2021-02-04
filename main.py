@@ -162,6 +162,7 @@ def cleanString(off_words, string):
 
 #region SystemOp
 
+
 def windowsSearch(string):
 	pyautogui.press('win')
 	pyautogui.write(unidecode.unidecode(string))
@@ -609,8 +610,9 @@ def netPower(string):
 
 def tvPower(string):
 	nodeSimpleRequest('t')
+
 def changeChannelTv(string):
-	client = getTvClient()
+	changeSourceTv(3)
 	off_words = {'tv','canal','televisão'}
 	canal = cleanString(off_words,string)
 	sub = {'globo':'501','sbt':'509','band':'505','bandeirantes':'505','gazeta':'521', 'rede tv':'508','record':'519','sbn':'188','jimmyk':'188'}
@@ -619,6 +621,10 @@ def changeChannelTv(string):
 			canal = canal.replace(word,sub[word]) 
 	
 	nodeCompostRequest(canal)
+def showProgramTv(string):
+	nodeSimpleRequest('p')
+	time.sleep(10)
+	nodeSimpleRequest('v')
 
 def searchTitleTv(string):
 	off_words = {'tv','televisão','série','filme','desenho'}
@@ -642,7 +648,7 @@ def openAppTv(string):
 	app = ApplicationControl(client)
 	apps = app.list_apps()  
 	yt = [x for x in apps if cleanString(off_words,string) in x["title"].lower()][0]
-	launch_info = app.launch(yt, content_id="dQw4w9WgXcQ")                         
+	launch_info = app.launch(yt)                         
 	inp = InputControl(client)           
 	time.sleep(15)                                                  
 	inp.enter()  	
@@ -662,6 +668,17 @@ def getTvClient():
 		except:
 			tvPower('a')
 			time.sleep(2)
+
+def changeSourceTv(a):
+    client = getTvClient()
+    source_control = SourceControl(client)
+    source_control.set_source(source_control.list_sources()[a])
+
+def conTv(string):
+	changeSourceTv(2)
+	os.system('DisplaySwitch.exe /external')
+def desconTv(string):
+	os.system('DisplaySwitch.exe /extend')
 def powerOffAll(string):
 	netPower(string)
 	tvPower(string)
@@ -729,6 +746,7 @@ def startMethod(string):
 		speak('ok')
 		exec(method + "('"+ phrase + "')")
 		addDataBase(phrase,method,genre)
+		time.sleep(2)
 
 def speak(text):
 	speaker = pyttsx3.init()

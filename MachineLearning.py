@@ -99,10 +99,10 @@ def machine (speech,base):
 			method[1] = distribuicao.prob(classe)
 	print('------------MÉTODO ESCOLHIDO---------------')
 	print(method[0])
-speech = 'toca minha playlist '
+speech = 'mostra a programação da tv'
 inicio = time.time()
 machine(speech,base)
 fim = time.time()
 print('------------TIME---------------')
 print(fim-inicio)
-print(4/2)
+

@@ -245,7 +245,7 @@ if (server.argName(i) == "command")
     }
    selectMethod(server.arg(i)[0]);
   }
-  txt = 'v';
+  txt = 'z';
 } 
 server.send(200, "text/plain", "Comando enviado com sucesso");          //Returns the HTTP response
 }
@@ -411,6 +411,16 @@ void selectMethod(char met)
     case 'f':
       emissorIR.sendNEC(0xFF9867, 32);
       Serial.println("apaga a luz");
+      delay(tempoTecla);
+      break;
+    case 'p':
+      emissorIR.sendNEC(0xE17A7887, 32);
+      Serial.println("Programação NET");
+      delay(tempoTecla);
+      break;
+    case 'v':
+      emissorIR.sendNEC(0xE17A8877, 32);
+      Serial.println("Voltar NET");
       delay(tempoTecla);
       break;
     case 'e':

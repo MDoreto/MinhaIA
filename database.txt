@@ -377,7 +377,11 @@ abre o filme forest gump na tv,searchTitleTv,externalFunctions
 procura o filme vingadores,searchTitleTv,externalFunctions
 põe a série supernatural na tv,searchTitleTv,externalFunctions
 coloca a série broklin na tv,searchTitleTv,externalFunctions
-põea série flash na tv,searchTitleTv,externalFunctions
+põe a série flash na tv,searchTitleTv,externalFunctions
+liga a tv,tvPower,externalFunctions
+liga a televisão,tvPower,externalFunctions
+desliga a tv,tvPower,externalFunctions
+desliga a televisão,tvPower,externalFunctions
 liga a tv,tvPower,externalFunctions
 liga a televisão,tvPower,externalFunctions
 desliga a tv,tvPower,externalFunctions
@@ -399,7 +403,20 @@ aumenta o som da caixinha,upMediaSpeaker,mediaControl
 abaixa o som da caixa de som,downMediaSpeaker,mediaControl
 diminuir volume da caixa de som,downMediaSpeaker,mediaControl
 abaixar o volume da caixinha,downMediaSpeaker,mediaControl
-Imprime o arquivo,printFile,systemOp
+conecta a tv no computador,conTv,externalFunctions
+liga a tv no computador,conTv,externalFunctions
+desconecta a tv do computador,desconTv,externalFunctions
+desliga a tv do computador,desconTv,externalFunctions
+conecta a tv no computador,conTv,externalFunctions
+liga a tv no computador,conTv,externalFunctions
+desconecta a tv do computador,desconTv,externalFunctions
+desliga a tv do computador,desconTv,externalFunctions
+mostra o que esta passando na tv agora,showProgramTv,externalFunctions
+mostra o que esta passando nos canais,showProgramTv,externalFunctions
+deixa eu ver a programaçao na tv,showProgramTv,externalFunctions
+o que esta passando na tv,showProgramTv,externalFunctions
+o que esta tendo nos canais da tv,showProgramTv,externalFunctions
+deixa eu ver o que esta passando na tv,showProgramTv,externalFunctionsImprime o arquivo,printFile,systemOp
 Imprime 3 cópias do arquivo,printFile,systemOp
 Pode imprimir o arquivo,printFile,systemOp
 Abre o photoshop,openProgram,systemOp
@@ -778,7 +795,11 @@ abre o filme forest gump na tv,searchTitleTv,externalFunctions
 procura o filme vingadores,searchTitleTv,externalFunctions
 põe a série supernatural na tv,searchTitleTv,externalFunctions
 coloca a série broklin na tv,searchTitleTv,externalFunctions
-põea série flash na tv,searchTitleTv,externalFunctions
+põe a série flash na tv,searchTitleTv,externalFunctions
+liga a tv,tvPower,externalFunctions
+liga a televisão,tvPower,externalFunctions
+desliga a tv,tvPower,externalFunctions
+desliga a televisão,tvPower,externalFunctions
 liga a tv,tvPower,externalFunctions
 liga a televisão,tvPower,externalFunctions
 desliga a tv,tvPower,externalFunctions
@@ -800,7 +821,20 @@ aumenta o som da caixinha,upMediaSpeaker,mediaControl
 abaixa o som da caixa de som,downMediaSpeaker,mediaControl
 diminuir volume da caixa de som,downMediaSpeaker,mediaControl
 abaixar o volume da caixinha,downMediaSpeaker,mediaControl
-Imprime o arquivo,printFile,systemOp
+conecta a tv no computador,conTv,externalFunctions
+liga a tv no computador,conTv,externalFunctions
+desconecta a tv do computador,desconTv,externalFunctions
+desliga a tv do computador,desconTv,externalFunctions
+conecta a tv no computador,conTv,externalFunctions
+liga a tv no computador,conTv,externalFunctions
+desconecta a tv do computador,desconTv,externalFunctions
+desliga a tv do computador,desconTv,externalFunctions
+mostra o que esta passando na tv agora,showProgramTv,externalFunctions
+mostra o que esta passando nos canais,showProgramTv,externalFunctions
+deixa eu ver a programaçao na tv,showProgramTv,externalFunctions
+o que esta passando na tv,showProgramTv,externalFunctions
+o que esta tendo nos canais da tv,showProgramTv,externalFunctions
+deixa eu ver o que esta passando na tv,showProgramTv,externalFunctionsImprime o arquivo,printFile,systemOp
 Imprime 3 cópias do arquivo,printFile,systemOp
 Pode imprimir o arquivo,printFile,systemOp
 Abre o photoshop,openProgram,systemOp
@@ -1179,7 +1213,11 @@ abre o filme forest gump na tv,searchTitleTv,externalFunctions
 procura o filme vingadores,searchTitleTv,externalFunctions
 põe a série supernatural na tv,searchTitleTv,externalFunctions
 coloca a série broklin na tv,searchTitleTv,externalFunctions
-põea série flash na tv,searchTitleTv,externalFunctions
+põe a série flash na tv,searchTitleTv,externalFunctions
+liga a tv,tvPower,externalFunctions
+liga a televisão,tvPower,externalFunctions
+desliga a tv,tvPower,externalFunctions
+desliga a televisão,tvPower,externalFunctions
 liga a tv,tvPower,externalFunctions
 liga a televisão,tvPower,externalFunctions
 desliga a tv,tvPower,externalFunctions
@@ -1201,7 +1239,20 @@ aumenta o som da caixinha,upMediaSpeaker,mediaControl
 abaixa o som da caixa de som,downMediaSpeaker,mediaControl
 diminuir volume da caixa de som,downMediaSpeaker,mediaControl
 abaixar o volume da caixinha,downMediaSpeaker,mediaControl
-Imprime o arquivo,printFile,systemOp
+conecta a tv no computador,conTv,externalFunctions
+liga a tv no computador,conTv,externalFunctions
+desconecta a tv do computador,desconTv,externalFunctions
+desliga a tv do computador,desconTv,externalFunctions
+conecta a tv no computador,conTv,externalFunctions
+liga a tv no computador,conTv,externalFunctions
+desconecta a tv do computador,desconTv,externalFunctions
+desliga a tv do computador,desconTv,externalFunctions
+mostra o que esta passando na tv agora,showProgramTv,externalFunctions
+mostra o que esta passando nos canais,showProgramTv,externalFunctions
+deixa eu ver a programaçao na tv,showProgramTv,externalFunctions
+o que esta passando na tv,showProgramTv,externalFunctions
+o que esta tendo nos canais da tv,showProgramTv,externalFunctions
+deixa eu ver o que esta passando na tv,showProgramTv,externalFunctionsImprime o arquivo,printFile,systemOp
 Imprime 3 cópias do arquivo,printFile,systemOp
 Pode imprimir o arquivo,printFile,systemOp
 Abre o photoshop,openProgram,systemOp
@@ -1580,7 +1631,11 @@ abre o filme forest gump na tv,searchTitleTv,externalFunctions
 procura o filme vingadores,searchTitleTv,externalFunctions
 põe a série supernatural na tv,searchTitleTv,externalFunctions
 coloca a série broklin na tv,searchTitleTv,externalFunctions
-põea série flash na tv,searchTitleTv,externalFunctions
+põe a série flash na tv,searchTitleTv,externalFunctions
+liga a tv,tvPower,externalFunctions
+liga a televisão,tvPower,externalFunctions
+desliga a tv,tvPower,externalFunctions
+desliga a televisão,tvPower,externalFunctions
 liga a tv,tvPower,externalFunctions
 liga a televisão,tvPower,externalFunctions
 desliga a tv,tvPower,externalFunctions
@@ -1602,7 +1657,20 @@ aumenta o som da caixinha,upMediaSpeaker,mediaControl
 abaixa o som da caixa de som,downMediaSpeaker,mediaControl
 diminuir volume da caixa de som,downMediaSpeaker,mediaControl
 abaixar o volume da caixinha,downMediaSpeaker,mediaControl
-Imprime o arquivo,printFile,systemOp
+conecta a tv no computador,conTv,externalFunctions
+liga a tv no computador,conTv,externalFunctions
+desconecta a tv do computador,desconTv,externalFunctions
+desliga a tv do computador,desconTv,externalFunctions
+conecta a tv no computador,conTv,externalFunctions
+liga a tv no computador,conTv,externalFunctions
+desconecta a tv do computador,desconTv,externalFunctions
+desliga a tv do computador,desconTv,externalFunctions
+mostra o que esta passando na tv agora,showProgramTv,externalFunctions
+mostra o que esta passando nos canais,showProgramTv,externalFunctions
+deixa eu ver a programaçao na tv,showProgramTv,externalFunctions
+o que esta passando na tv,showProgramTv,externalFunctions
+o que esta tendo nos canais da tv,showProgramTv,externalFunctions
+deixa eu ver o que esta passando na tv,showProgramTv,externalFunctionsImprime o arquivo,printFile,systemOp
 Imprime 3 cópias do arquivo,printFile,systemOp
 Pode imprimir o arquivo,printFile,systemOp
 Abre o photoshop,openProgram,systemOp
@@ -1981,7 +2049,11 @@ abre o filme forest gump na tv,searchTitleTv,externalFunctions
 procura o filme vingadores,searchTitleTv,externalFunctions
 põe a série supernatural na tv,searchTitleTv,externalFunctions
 coloca a série broklin na tv,searchTitleTv,externalFunctions
-põea série flash na tv,searchTitleTv,externalFunctions
+põe a série flash na tv,searchTitleTv,externalFunctions
+liga a tv,tvPower,externalFunctions
+liga a televisão,tvPower,externalFunctions
+desliga a tv,tvPower,externalFunctions
+desliga a televisão,tvPower,externalFunctions
 liga a tv,tvPower,externalFunctions
 liga a televisão,tvPower,externalFunctions
 desliga a tv,tvPower,externalFunctions
@@ -2003,38 +2075,17 @@ aumenta o som da caixinha,upMediaSpeaker,mediaControl
 abaixa o som da caixa de som,downMediaSpeaker,mediaControl
 diminuir volume da caixa de som,downMediaSpeaker,mediaControl
 abaixar o volume da caixinha,downMediaSpeaker,mediaControl
-aumenta o volume do receptor da net,upMediaNet,mediaControl
-o filme mercenários na tv,searchTitleTv,externalFunctions
-abre o filme mercenários na tv,searchTitleTv,externalFunctions
-o filme mercenários na tv também,searchTitleTv,externalFunctions
-maiara procura o filme mercenários na tv,searchTitleTv,externalFunctions
-o filme mercenários 2 na tv,searchTitleTv,externalFunctions
-o filme mercenários 3 na tv,searchTitleTv,externalFunctions
-o filme vingadores na tv,searchTitleTv,externalFunctions
-o filme o quarto na tv,searchTitleTv,externalFunctions
-coloca a tv no canal do jimmy,changeChannelTv,externalFunctions
-apaga a lâmpada maia,lightOff,externalFunctions
-liga a tv no canal do jimmy,changeChannelTv,externalFunctions
-acende a lâmpada,lightOn,externalFunctions
-apaga lâmpada,lightOff,externalFunctions
-maiara liga as caixinhas no computador,speakerLine,externalFunctions
-aumenta o volume das caixinhas maia,upMediaSpeaker,mediaControl
-aumenta o volume das caixinhas,upMediaSpeaker,mediaControl
-a música carry on my wayward son,spotifySearch,mediaSearch
-maiara desliga o computador,lightOff,externalFunctions
-coloca na band,changeChannelTv,externalFunctions
-o filme godzilla,searchTitleTv,externalFunctions
-conecta a caixinha de som no bluetooth,speakerBlue,externalFunctions
-desliga tudo,powerOffAll,externalFunctions
-desliga tudo,powerOffAll,externalFunctions
-desliga tudo,powerOffAll,externalFunctions
-desliga tudo,powerOffAll,externalFunctions
-desliga tudo,powerOffAll,externalFunctions
-desliga tudo,powerOffAll,externalFunctions
-desliga tudo,powerOffAll,externalFunctions
-desliga tudo,powerOffAll,externalFunctions
-desliga tudo,powerOffAll,externalFunctions
-desliga tudo,powerOffAll,externalFunctions
-liga caixinha de som computador,speakerLine,externalFunctions
-desliga televisão,tvPower,externalFunctions
-maiara liga as caixinhas de som computador,speakerLine,externalFunctions
+conecta a tv no computador,conTv,externalFunctions
+liga a tv no computador,conTv,externalFunctions
+desconecta a tv do computador,desconTv,externalFunctions
+desliga a tv do computador,desconTv,externalFunctions
+conecta a tv no computador,conTv,externalFunctions
+liga a tv no computador,conTv,externalFunctions
+desconecta a tv do computador,desconTv,externalFunctions
+desliga a tv do computador,desconTv,externalFunctions
+mostra o que esta passando na tv agora,showProgramTv,externalFunctions
+mostra o que esta passando nos canais,showProgramTv,externalFunctions
+deixa eu ver a programaçao na tv,showProgramTv,externalFunctions
+o que esta passando na tv,showProgramTv,externalFunctions
+o que esta tendo nos canais da tv,showProgramTv,externalFunctions
+deixa eu ver o que esta passando na tv,showProgramTv,externalFunctions

@@ -377,7 +377,11 @@ abre o filme forest gump na tv,searchTitleTv,externalFunctions
 procura o filme vingadores,searchTitleTv,externalFunctions
 põe a série supernatural na tv,searchTitleTv,externalFunctions
 coloca a série broklin na tv,searchTitleTv,externalFunctions
-põea série flash na tv,searchTitleTv,externalFunctions
+põe a série flash na tv,searchTitleTv,externalFunctions
+liga a tv,tvPower,externalFunctions
+liga a televisão,tvPower,externalFunctions
+desliga a tv,tvPower,externalFunctions
+desliga a televisão,tvPower,externalFunctions
 liga a tv,tvPower,externalFunctions
 liga a televisão,tvPower,externalFunctions
 desliga a tv,tvPower,externalFunctions
@@ -399,3 +403,17 @@ aumenta o som da caixinha,upMediaSpeaker,mediaControl
 abaixa o som da caixa de som,downMediaSpeaker,mediaControl
 diminuir volume da caixa de som,downMediaSpeaker,mediaControl
 abaixar o volume da caixinha,downMediaSpeaker,mediaControl
+conecta a tv no computador,conTv,externalFunctions
+liga a tv no computador,conTv,externalFunctions
+desconecta a tv do computador,desconTv,externalFunctions
+desliga a tv do computador,desconTv,externalFunctions
+conecta a tv no computador,conTv,externalFunctions
+liga a tv no computador,conTv,externalFunctions
+desconecta a tv do computador,desconTv,externalFunctions
+desliga a tv do computador,desconTv,externalFunctions
+mostra o que esta passando na tv agora,showProgramTv,externalFunctions
+mostra o que esta passando nos canais,showProgramTv,externalFunctions
+deixa eu ver a programaçao na tv,showProgramTv,externalFunctions
+o que esta passando na tv,showProgramTv,externalFunctions
+o que esta tendo nos canais da tv,showProgramTv,externalFunctions
+deixa eu ver o que esta passando na tv,showProgramTv,externalFunctions
