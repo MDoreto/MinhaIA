@@ -532,7 +532,7 @@ def checkGmail(string):
 def spotifySearch(string):
 	music = getMusicName(string)
 	options_temp = webdriver.ChromeOptions() 
-	options_temp.add_argument('user-data-dir=C:\\Users\\mathe\\OneDrive\\Área de Trabalho\\jarvis\\UserData')
+	options_temp.add_argument('user-data-dir=C:\\Users\\mathe\\OneDrive\\Área de Trabalho\\jarvis\\dataChrome\\UserData')
 	options_temp.add_argument('--profile-directory=Profile 2')
 	browser_temp = webdriver.Chrome(executable_path='C:\\Users\\mathe\\OneDrive\\Área de Trabalho\\jarvis\\chromedriver', options=options_temp)
 	browser_temp.get('https://open.spotify.com/search')
@@ -781,7 +781,7 @@ def listen():
 
 options = webdriver.ChromeOptions()
 options.add_argument("--headless")
-browser = webdriver.Chrome(r'C:\Users\mathe\OneDrive\Área de Trabalho\jarvis/chromedriver', options=options)
+browser = webdriver.Chrome(r'C:\Users\mathe\OneDrive\Área de Trabalho\jarvis\dataChrome\chromedriver', options=options)
 
 stopwords=nltk.corpus.stopwords.words('portuguese')
 stemmer = nltk.stem.RSLPStemmer()
