@@ -442,7 +442,8 @@ def checkSchedule(string):
 	# Call the Calendar API
 	now = datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
 	print('Getting the upcoming 10 events')
-	events_result = authCalendar().events().list(calendarId='primary', timeMin=now,
+	service = authCalendar()
+	events_result = service.events().list(calendarId='primary', timeMin=now,
 										maxResults=10, singleEvents=True,
 										orderBy='startTime').execute()
 	events = events_result.get('items', [])
@@ -451,7 +452,7 @@ def checkSchedule(string):
 		speak('Nenhum evento próximo')
 	for event in events:
 		start = event['start'].get('dateTime', event['start'].get('date'))
-		speak(start, event['summary'])
+		speak(event['summary'])
 
 def authCalendar():
 	SCOPES = ['https://www.googleapis.com/auth/calendar']
@@ -491,8 +492,8 @@ def addEvent(string):
 		'timeZone': 'America/Sao_Paulo',
 	}
 	}
-
-	event = authCalendar().events().insert(calendarId='primary', body=event).execute()
+	service = authCalendar()
+	event = service.events().insert(calendarId='primary', body=event).execute()
 	print ('Event created: %s' % (event.get('htmlLink')))
 
 #endregion
@@ -615,12 +616,12 @@ def changeChannelTv(string):
 	changeSourceTv(3)
 	off_words = {'tv','canal','televisão'}
 	canal = cleanString(off_words,string)
-	sub = {'globo':'501','sbt':'509','band':'505','bandeirantes':'505','gazeta':'521', 'rede tv':'508','record':'519','sbn':'188','jimmyk':'188'}
+	sub = {'globo':'501','sbt':'509','band':'505','bandeirantes':'505','gazeta':'521', 'rede tv':'508','record':'519','sbn':'188','jimmy':'188'}
 	for word in canal.split():
 		if word in sub:
-			canal = canal.replace(word,sub[word]) 
-	
+			canal = canal.replace(word,sub[word]) 	
 	nodeCompostRequest(canal)
+
 def showProgramTv(string):
 	nodeSimpleRequest('p')
 	time.sleep(10)
@@ -677,8 +678,10 @@ def changeSourceTv(a):
 def conTv(string):
 	changeSourceTv(2)
 	os.system('DisplaySwitch.exe /external')
+
 def desconTv(string):
 	os.system('DisplaySwitch.exe /extend')
+	
 def powerOffAll(string):
 	netPower(string)
 	tvPower(string)
@@ -790,11 +793,10 @@ classgenre =  training('')
 
 while True:
 	speech = listen()
-	speech = speech.replace('maya','maia',1)
-	if 'maia' in speech:
+	if 'jarvis' in speech:
 		if len(speech.split())<3:
 			speak('sim')
 			speech = listen()
-		_thread.start_new_thread(startMethod, (speech.replace('maia ',"",1),))
+		_thread.start_new_thread(startMethod, (speech.replace('jarvis ',"",1),))
 
 #endregion

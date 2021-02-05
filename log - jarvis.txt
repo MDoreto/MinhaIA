@@ -22,3 +22,10 @@
     desliga o pc
     resolve operações matemáticas
     busca qualquer informação no google
+    abre filmes e series na tv
+    liga e desliga receptor NET
+    seleciona canal
+    controle total caixa de som
+    Luz ON/OFF
+    mostra informações dos canais
+    controle input tv/pc

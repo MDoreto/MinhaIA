@@ -417,3 +417,7 @@ deixa eu ver a programaçao na tv,showProgramTv,externalFunctions
 o que esta passando na tv,showProgramTv,externalFunctions
 o que esta tendo nos canais da tv,showProgramTv,externalFunctions
 deixa eu ver o que esta passando na tv,showProgramTv,externalFunctions
+desliga tudo,powerOffAll,externalFunctions
+desliga tudo,powerOffAll,externalFunctions
+desliga tudo,powerOffAll,externalFunctions
+desliga tudo,powerOffAll,externalFunctions
