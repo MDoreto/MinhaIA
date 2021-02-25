@@ -1,5 +1,0 @@
-2020/12/01-14:38:26.160 ef8 Reusing MANIFEST C:\Users\mathe\AppData\Local\Google\Chrome\User Data\Profile 2\IndexedDB\https_lpcdn.lpsnmedia.net_0.indexeddb.leveldb/MANIFEST-000001
-2020/12/01-14:38:46.373 2af8 Level-0 table #5: started
-2020/12/01-14:38:46.376 2af8 Level-0 table #5: 3817 bytes OK
-2020/12/01-14:38:46.381 2af8 Delete type=0 #3
-2020/12/01-14:38:46.381 2af8 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
