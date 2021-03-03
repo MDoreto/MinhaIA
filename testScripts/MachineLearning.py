@@ -99,7 +99,7 @@ def machine (speech,base):
 			method[1] = distribuicao.prob(classe)
 	print('------------MÉTODO ESCOLHIDO---------------')
 	print(method[0])
-speech = 'desliga tudo'
+speech = 'muta o computador'
 inicio = time.time()
 machine(speech,base)
 fim = time.time()

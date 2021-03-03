@@ -1,0 +1,2 @@
+[9972:13960:0216/035559.141:INFO:CONSOLE(40)] "Uncaught TypeError: Cannot read property 'AutoJoinPolicy' of undefined", source: https://www.gstatic.com/cast/sdk/libs/sender/1.0/cast_framework.js (40)
+[9972:13960:0216/040206.141:WARNING:pref_notifier_impl.cc(40)] Pref observer for media_router.cast_allow_all_ips found at shutdown.

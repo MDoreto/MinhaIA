@@ -534,7 +534,7 @@ def spotifySearch(string):
 	options_temp = webdriver.ChromeOptions() 
 	options_temp.add_argument('user-data-dir=C:\\Users\\mathe\\OneDrive\\Área de Trabalho\\jarvis\\dataChrome\\UserData')
 	options_temp.add_argument('--profile-directory=Profile 2')
-	browser_temp = webdriver.Chrome(executable_path='C:\\Users\\mathe\\OneDrive\\Área de Trabalho\\jarvis\\chromedriver', options=options_temp)
+	browser_temp = webdriver.Chrome(executable_path='C:\\Users\\mathe\\OneDrive\\Área de Trabalho\\jarvis\\dataChrome\\chromedriver', options=options_temp)
 	browser_temp.get('https://open.spotify.com/search')
 	if 'músicas' in music or 'playlist' in music or 'favoritas' in music:
 		ui.WebDriverWait(browser_temp, 10).until(EC.element_to_be_clickable((By.XPATH, "//a[@class='ac0df040748287f39652cc42e3b762ba-scss']"))).click()
@@ -550,7 +550,7 @@ def spotifySearch(string):
 	browser_temp.quit()
 	
 def youtubeSearch(string):	
-	browser_temp = webdriver.Chrome(r'C:\Users\mathe\OneDrive\Área de Trabalho\jarvis/chromedriver')
+	browser_temp = webdriver.Chrome(r'C:\Users\mathe\OneDrive\Área de Trabalho\jarvis\\dataChrome\\chromedriver')
 	browser_temp.get('https://www.google.com.br/videohp?hl=pt-BR')
 	elementoEntrada = browser_temp.find_element_by_class_name('lst.tiah') # procura o elemento
 	elementoEntrada.send_keys(getMusicName(string)) # preenche com a palavra amazonia
@@ -793,10 +793,11 @@ classgenre =  training('')
 
 while True:
 	speech = listen()
-	if 'jarvis' in speech:
+	speech = speech.replace('maia','maya',1)
+	if 'maya' in speech:
 		if len(speech.split())<3:
 			speak('sim')
 			speech = listen()
-		_thread.start_new_thread(startMethod, (speech.replace('jarvis ',"",1),))
+		_thread.start_new_thread(startMethod, (speech.replace('Maya ',"",1),))
 
 #endregion
